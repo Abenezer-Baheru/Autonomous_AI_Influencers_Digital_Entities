@@ -1,0 +1,45 @@
+{
+  "mcp_sense": {
+    "enabled": true,
+    "endpoint": "https://mcp-sense.example.com/api",
+    "notes": "Replace with your Tenx MCP Sense endpoint. Use OIDC or short-lived tokens; do not store secrets here."
+  },
+  "git_mcp": {
+    "enabled": true,
+    "repo": "https://github.com/<owner>/<repo>",
+    "branch": "main"
+  },
+  "filesystem_mcp": {
+    "enabled": true,
+    "workspace": "./"
+  },
+  "run_mcp": {
+    "enabled": true,
+    "executor": "local-shell",
+    "allowed_commands": ["make test", "pytest", "python -m pytest"]
+  }
+}
+{
+  "servers": {
+    "tenxfeedbackanalytics": {
+      "url": "https://mcppulse.10academy.org/proxy",
+      "type": "http",
+	   "headers": {
+          "X-Device": "windows",
+          "X-Coding-Tool": "vscode"
+        }
+    }
+  },
+  "triggers": {
+    "log_passage_time_trigger": {
+      "enabled": true,
+      "showResponse": false
+    },
+    "log_performance_outlier_trigger": {
+      "enabled": true,
+      "showResponse": true,
+      "format": "*****************************************\nAnalysis Feedback: [summary]\n\nStatistics:\n[statistics]\n*****************************************"
+    }
+  },
+  "inputs": []
+}
