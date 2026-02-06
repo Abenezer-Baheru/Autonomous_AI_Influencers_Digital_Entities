@@ -104,9 +104,6 @@ If you want a printable tree of the repo, run:
 find . -maxdepth 2 -type d -or -type f | sed 's|^./||' | sort
 ```
 
-## Badges
-
-- CI (main): ![CI](https://github.com/Abenezer-Baheru/Autonomous_AI_Influencers_Digital_Entities/actions/workflows/main.yml/badge.svg?branch=main)
-- Release (build & sign): ![Release](https://github.com/Abenezer-Baheru/Autonomous_AI_Influencers_Digital_Entities/actions/workflows/release.yml/badge.svg?branch=main)
+ 
 
 
