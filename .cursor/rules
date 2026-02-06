@@ -1,0 +1,24 @@
+Project Chimera — IDE Agent Rules
+=================================
+
+Project Context:
+- This is Project Chimera, an autonomous influencer system that composes, schedules, and publishes short-form media using modular agent "skills".
+
+Prime Directive:
+- NEVER generate or commit production code without first locating and checking the relevant specification in the `specs/` directory.
+
+Traceability & Planning:
+- Before writing code, the agent must always: 1) summarize the high-level plan, 2) reference the exact spec file and section (e.g. `specs/technical.md#api-contracts`), and 3) list the tests it will create/update.
+
+Behavioral Rules:
+- Prefer small, test-driven changes. Write failing tests first when adding new functionality.
+- If a requested change is ambiguous, ask clarifying questions that identify which spec or acceptance criteria apply.
+- Do not perform external network operations (downloads, API calls, posting) without explicit user approval or a corresponding integration test marked for real-run.
+- Flag any detected secrets or credentials and stop; never commit secrets to the repo.
+
+Commit & PR Guidance:
+- Include spec traceability in commit messages: include the spec path and section (e.g. "feat: implement skill X — refs specs/functional.md#story-3").
+- Include the failing test name in the PR description when opening a change that fills a test-driven "empty slot".
+
+Enforcement:
+- The agent should treat `.coderabbit.yaml` as the AI Review Policy and consult it before large changes.
