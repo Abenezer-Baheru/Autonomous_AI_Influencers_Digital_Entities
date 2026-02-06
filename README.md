@@ -81,3 +81,26 @@ pip install -e .[yt,transcribe]
 
 This installs `yt-dlp` and `openai-whisper` (or similar) to enable real skill execution. CI disables network-heavy tests by default.
 
+## Repository structure
+
+Top-level layout (important files/folders):
+
+- `pyproject.toml` — project metadata and optional extras
+- `specs/` — spec-driven files: `_meta.md`, `functional.md`, `technical.md`, `openclaw_integration.md`
+- `skills/` — skill contracts and implementations
+	- `skills/impl/` — Python skill implementations (e.g., `skill_download_youtube.py`)
+- `tests/` — pytest tests (interface + realistic dry_run tests)
+- `Makefile` — `make setup`, `make test`, `make docker-build` targets
+- `Dockerfile` — image build for runtime and CI
+- `.github/workflows/` — CI and release workflows (`main.yml`, `release.yml`)
+- `.coderabbit.yaml` — AI reviewer / policy simulation config
+- `docs/AI_REVIEW_POLICY.md` — human-readable review policy
+- `.gitignore` — excludes venvs, artifacts, and secrets
+- `.vscode/mcp.json` — MCP Sense connection config
+
+If you want a printable tree of the repo, run:
+
+```bash
+find . -maxdepth 2 -type d -or -type f | sed 's|^./||' | sort
+```
+
