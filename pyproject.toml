@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-chimera"
+version = "0.1.0"
+description = "Project Chimera - Autonomous AI Influencer platform"
+requires-python = ">=3.10"
+dependencies = [
+  "pytest",
+  "uv"
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-q"
+
+# Notes:
+# - `uv` is recommended for the Golden Environment per project guidance.
+# - Install with your preferred installer or via `pip install -e .` after creating a virtual env.
