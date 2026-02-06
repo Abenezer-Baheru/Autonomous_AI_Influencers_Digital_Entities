@@ -1,0 +1,31 @@
+version: 1
+reviewer: coderabbit
+policy:
+  name: Project Chimera AI Review Policy
+  description: |
+    Automated AI review configuration for Project Chimera. The reviewer must validate that
+    changes align with ratified specs in `specs/`, do not introduce secrets, and pass tests.
+  checks:
+    - id: spec-alignment
+      description: Ensure modified/added code implements behavior described in `specs/`.
+      severity: high
+      action: require_explanation
+    - id: tests-existence
+      description: Ensure new features add or update tests; failing tests block merge.
+      severity: high
+      action: block_on_fail
+    - id: dependency-security
+      description: Scan dependency changes for known vulnerabilities and untrusted sources.
+      severity: high
+      action: block_on_fail
+    - id: secrets-detection
+      description: Detect hard-coded secrets, tokens, and credentials in diffs.
+      severity: critical
+      action: block_on_fail
+    - id: spec-first
+      description: Enforce Spec-Driven Development: do not allow implementation without ratified spec file.
+      severity: critical
+      action: require_human_review
+  report:
+    notify: ["pull_request","push"]
+    required_approvals: 1
