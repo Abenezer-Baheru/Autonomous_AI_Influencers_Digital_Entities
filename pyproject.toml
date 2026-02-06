@@ -19,3 +19,8 @@ addopts = "-q"
 # Notes:
 # - `uv` is recommended for the Golden Environment per project guidance.
 # - Install with your preferred installer or via `pip install -e .` after creating a virtual env.
+
+[project.optional-dependencies]
+yt = ["yt-dlp"]
+transcribe = ["openai-whisper"]
+all = ["yt-dlp", "openai-whisper"]
